@@ -22,14 +22,13 @@
   font-weight: 200;
   font-size:30px;
 }
-
-
 .register > input{
   height:40px;
   outline: none;
   border:1px solid lightgray;
   border-radius: 5px;
   text-indent: 20px;
+  font-size: 15px;
 }
 .register > button{
   height: 50px;
