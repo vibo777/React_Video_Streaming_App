@@ -4,10 +4,32 @@
   padding-left: 15%;
   background-color: rgb(33, 33,33,0.7);
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  row-gap: 50px;
+  /* justify-content: center;    */
   background-blend-mode: saturation;
   background-image: url("https://thebutlercollegian.com/wp-content/uploads/2019/03/netflix-image.jpg");
 }
+
+/* css for message  */
+.message-bg{
+  height: 50px;
+  width: 100%;
+  /* background-color: white; */
+  margin-top: 10vh;
+}
+.message{
+  height:50px;
+  width: 100%;
+  background-color: white;
+  line-height: 50px;
+  text-indent: 50px;
+  font-weight:bold;
+}
+
+
+
+/* css for register  */
 .register{
   /* height:600px; */
   width:35%;
@@ -40,6 +62,7 @@
   font-size: 16px;
   text-transform: uppercase;
   font-weight: bold;
+  cursor: pointer;
 }
 
 

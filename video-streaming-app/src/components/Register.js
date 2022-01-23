@@ -1,6 +1,13 @@
+import {useState} from 'react';
+
+
 function Register(){
     
     let user={};
+    let [message,setMessage] = useState("Hello Vaibhav");
+    let [boxVisible,setBoxVisible] = useState(false);
+
+
     // function to read value of input field
     function readvalue(property,value){
         user[property]=value; 
@@ -20,9 +27,11 @@ function Register(){
             })
             .then((response)=>response.json())
             .then((data)=>{
-                console.log(data);
+                 
+                setMessage(data.message); 
+                setBoxVisible(true);
             })    
-            .catch((err)=>{console.log(err)})
+            .catch((err)=>{console.log(err)})   
         } 
         else{
             console.log("Password don't match");
@@ -32,6 +41,19 @@ function Register(){
     return(
         <section>
             <div className="main">
+
+                <div className="message-bg">
+            
+                    {
+                        boxVisible===true?(
+                            <div className="message">
+                            {message}
+                            </div>    
+                        ):null
+                    }
+                         
+                </div>    
+
                 <div className="register">
                     <h1 className="title">Create an account</h1>
                     <input type="text" placeholder="Enter your name" onChange={(event)=>{readvalue("name", event.target.value)}}/>
