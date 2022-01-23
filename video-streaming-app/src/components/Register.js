@@ -1,6 +1,5 @@
 import {useState} from 'react';
 
-
 function Register(){
     
     let user={};
@@ -59,7 +58,7 @@ function Register(){
                          
                 </div>    
 
-                <div className="register">
+                <div className="account">
                     <h1 className="title">Create an account</h1>
                     <input type="text" placeholder="Enter your name" onChange={(event)=>{readvalue("name", event.target.value)}}/>
                     <input type="email" placeholder="Enter your Email" onChange={(event)=>{readvalue("email",event.target.value)}}/>
