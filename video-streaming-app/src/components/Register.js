@@ -30,6 +30,11 @@ function Register(){
                  
                 setMessage(data.message); 
                 setBoxVisible(true);
+
+                setTimeout(()=>{
+                    setBoxVisible(false);
+                },3000)
+
             })    
             .catch((err)=>{console.log(err)})   
         } 
