@@ -10,7 +10,7 @@ function Videos(){
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg2tkrCP9lZxzQ9V4OHngvQGuUsEhot2qZwQ&usqp=CAU"/> 
                     </div>    
                     <div className="padd">
-                        <h1>Money Heist</h1>
+                        <h1 className="movie-title">Money Heist</h1>
                         <p>
                             Action . Thriller . Drama
                         </p>    
