@@ -1,8 +1,7 @@
 function Register(){
     
-
     let user={};
-    // function to read vlaue of input field
+    // function to read value of input field
     function readvalue(property,value){
         user[property]=value; 
     }  
@@ -11,7 +10,19 @@ function Register(){
     function register(){
         if(user.cpassword===user.password){
             delete user.cpassword;
-            console.log(user);
+            
+            fetch("http://localhost:8000/register",{
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify(user)
+            })
+            .then((response)=>response.json())
+            .then((data)=>{
+                console.log(data);
+            })    
+            .catch((err)=>{console.log(err)})
         } 
         else{
             console.log("Password don't match");
