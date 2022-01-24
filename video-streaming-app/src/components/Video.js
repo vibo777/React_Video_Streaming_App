@@ -1,9 +1,33 @@
-/* eslint-disable jsx-a11y/alt-text */
+import {useState,useEffect} from 'react';  
+
 function Videos(){
+
+    let [videos,setVideos] = useState([]);
+    
+    let token = JSON.parse(localStorage.getItem("vs_details")).token;
+
+    useEffect(()=>{
+
+        // console.log(token);
+
+        fetch("http://localhost:8000/videos",{
+            headers:{
+                "Authorization":`Bearer ${token}`
+            }
+        })
+        .then((response)=>response.json())
+        .then((data)=>{
+            console.log(data);
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+
+    })
 
     return(
         <div className="bg">
-            <h1 className="title">Videos</h1>        
+            {/* <h1 className="title">Videos</h1>        
             <div className="video-container">
                 <div className="video-card">
                     <div className="video-img">
@@ -27,7 +51,7 @@ function Videos(){
 
 
                 </div>
-            </div>
+            </div> */}
         
         </div>
     ) 
