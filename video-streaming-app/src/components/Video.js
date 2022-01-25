@@ -16,7 +16,7 @@ function Videos(){
         })
         .then((response)=>response.json())
         .then((data)=>{
-            console.log(data);
+            // console.log(data);
             setVideos(data);    
         })
         .catch((err)=>{
@@ -27,31 +27,46 @@ function Videos(){
 
     return(
         <div className="bg">
-            {/* <h1 className="title">Videos</h1>        
+            <h1 className="title">Videos</h1>        
             <div className="video-container">
-                <div className="video-card">
-                    <div className="video-img">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg2tkrCP9lZxzQ9V4OHngvQGuUsEhot2qZwQ&usqp=CAU"/> 
-                    </div>    
-                    <div className="padd">
-                        <h1 className="movie-title">Money Heist</h1>
-                        <p>
-                            Action . Thriller . Drama
-                        </p>    
-                        <p>
-                           IMDB : 9.2     
-                        </p>
-                        <button className="btn">Watch Now</button>
+
+                {
+                    videos.map((video,index)=>{
+                        return(
+                            <div className="video-card" key={index}>
+                            <div className="video-img">
+                                <img className='video-image' src={video.posterurl} alt={video.originalTitle}/> 
+                            </div>    
+                            <div className="padd">
+                                <h1 className="movie-title">{video.originalTitle}</h1>
+                                <p>
+                                    {
+                                        video.genres.map((genre,index)=>{
+                                            return(
+                                                <span key={index}>{genre}.</span>    
+                                            )
+                                        })
+                                    } 
+                                </p>    
+                                <p>
+                                   IMDB : {video.imdbRating}    
+                                </p>
+                                <button className="btn">Watch Now</button>
+                            </div>
+                        </div>
+
+                        )
+                    })   
+
+                }
 
 
-                    </div>
 
 
 
 
-
-                </div>
-            </div> */}
+            
+            </div>
         
         </div>
     ) 
