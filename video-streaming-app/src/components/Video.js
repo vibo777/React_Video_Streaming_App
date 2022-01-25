@@ -1,29 +1,29 @@
-import {useState,useEffect} from 'react';  
+import {useEffect,useState,useRef} from 'react';  
 
 function Videos(){
 
     let [videos,setVideos] = useState([]);
     
-    let token = JSON.parse(localStorage.getItem("vs_details")).token;
+    let token = useRef(JSON.parse(localStorage.getItem("vs_details")).token);
 
     useEffect(()=>{
 
-        // console.log(token);
 
         fetch("http://localhost:8000/videos",{
             headers:{
-                "Authorization":`Bearer ${token}`
+                "Authorization":`Bearer ${token.current}`
             }
         })
         .then((response)=>response.json())
         .then((data)=>{
             console.log(data);
+            setVideos(data);    
         })
         .catch((err)=>{
             console.log(err);
         })
 
-    })
+    },[])
 
     return(
         <div className="bg">
