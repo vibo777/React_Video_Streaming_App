@@ -32,9 +32,17 @@ function Videoplayer(){
 
             <div className='video_area'>
 
-                <video width="100%" controls>
+                {
+                    video.videoPath!==undefined ? 
+                    (
+                        <video width="100%" controls>
+                            <source src={'http://localhost:8000/stream/'+video.videoPath}/> 
+                        </video>
 
-                </video>
+                    ):
+                    null    
+                }
+                
 
                 <div className='content'>
 
@@ -53,8 +61,8 @@ function Videoplayer(){
                         {
                             video.genres?.map((genre,index)=>{
                                 return(
-                                    <p>
-                                        <span key={index}>{genre}.</span>    
+                                    <p key={index}>
+                                        <span>{genre}.</span>    
                                     </p>
                                 )
                             })
@@ -66,8 +74,8 @@ function Videoplayer(){
                         {
                             video.actors?.map((actor,index)=>{
                                 return(
-                                   <p>
-                                       <span key={index}>{actor}.</span> 
+                                   <p key={index}>
+                                       <span >{actor}.</span> 
                                    </p> 
                                        
                                 )
