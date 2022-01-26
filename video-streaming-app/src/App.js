@@ -2,7 +2,7 @@ import './App.css';
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import Login from './components/Login'; 
 import Register from './components/Register';
-import Videos from './components/Video';
+import Videos from './components/Videos';
 
 
 function App() {
