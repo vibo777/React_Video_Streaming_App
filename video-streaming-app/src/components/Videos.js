@@ -1,4 +1,5 @@
 import {useEffect,useState,useRef} from 'react';  
+import { Link } from 'react-router-dom' 
 
 function Videos(){
 
@@ -51,7 +52,11 @@ function Videos(){
                                 <p>
                                    IMDB : {video.imdbRating}    
                                 </p>
-                                <button className="btn">Watch Now</button>
+
+                                <Link to={"/player/"+video._id}>
+                                    <button className="btn">Watch Now</button>
+                                </Link>
+                                
                             </div>
                         </div>
 
@@ -60,12 +65,7 @@ function Videos(){
 
                 }
 
-
-
-
-
-
-            
+ 
             </div>
         
         </div>
