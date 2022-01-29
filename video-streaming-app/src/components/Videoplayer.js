@@ -8,6 +8,8 @@ function Videoplayer(){
 
     let [video,setVideo]=useState({});
     let token = useRef(JSON.parse(localStorage.getItem("vs_details")).token);
+    let vid;
+
     useEffect(()=>{
 
         fetch("http://localhost:8000/videos/"+params.current.video_id,{
@@ -25,17 +27,26 @@ function Videoplayer(){
         })
     },[])
 
+    function handleVideoElement(ele){
+        vid=ele;
+    }
+
+    function closePlayer(){
+        console.log(vid?.currentTime);
+    }
+
 
     return(
         <div className="bg">
             <h1 className='title'>{video.originalTitle}</h1>
 
+            <button onClick={ closePlayer}>close</button>
             <div className='video_area'>
 
                 {
                     video.videoPath!==undefined ? 
                     (
-                        <video width="100%" controls>
+                        <video width="100%" controls ref={handleVideoElement}>
                             <source src={'http://localhost:8000/stream/'+video.videoPath}/> 
                         </video>
 
