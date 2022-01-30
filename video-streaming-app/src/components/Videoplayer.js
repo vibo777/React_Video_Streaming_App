@@ -8,11 +8,13 @@ function Videoplayer(){
 
     let [video,setVideo]=useState({});
     let token = useRef(JSON.parse(localStorage.getItem("vs_details")).token);
+    let user_id = useRef(JSON.parse(localStorage.getItem("vs_details")).user_id);
+
     let vid;
 
     useEffect(()=>{
 
-        fetch("http://localhost:8000/videos/"+params.current.video_id,{
+        fetch("http://localhost:8000/videos/"+params.current.video_id+"/"+user_id.current,{
             headers:{
                 "Authorization": `Bearer ${token.current}` 
             }
