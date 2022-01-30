@@ -21,8 +21,8 @@ function Videoplayer(){
         })
         .then((response)=>response.json())
         .then((data)=>{
-            console.log(data[0]);
-            setVideo(data[0]);
+            console.log(data);
+            setVideo(data);
         })
         .catch((err)=>{
             console.log(err);
@@ -40,13 +40,13 @@ function Videoplayer(){
 
     return(
         <div className="bg">
-            <h1 className='title'>{video.originalTitle}</h1>
+            <h1 className='title'>{video?.originalTitle}</h1>
 
             <button onClick={ closePlayer}>close</button>
             <div className='video_area'>
 
                 {
-                    video.videoPath!==undefined ? 
+                    video?.videoPath!==undefined ? 
                     (
                         <video width="100%" controls ref={handleVideoElement}>
                             <source src={'http://localhost:8000/stream/'+video.videoPath}/> 
@@ -61,18 +61,18 @@ function Videoplayer(){
 
                     <div className='storyline'>
                         <h1 className='title'>Storyline</h1>
-                        {video.storyline}
+                        {video?.storyline}
                     </div>
 
                     <div className='rating'> 
                         <h1 className='title'>IMDB Rating</h1>
-                        {video.imdbRating} 
+                        {video?.imdbRating} 
                     </div>
 
                     <div className='genre'>
                     <h1 className='title'>Genre</h1>    
                         {
-                            video.genres?.map((genre,index)=>{
+                            video?.genres?.map((genre,index)=>{
                                 return(
                                     <p key={index}>
                                         <span>{genre}.</span>    
@@ -85,7 +85,7 @@ function Videoplayer(){
                     <div className='actors'>
                     <h1 className='title'>Actors</h1>    
                         {
-                            video.actors?.map((actor,index)=>{
+                            video?.actors?.map((actor,index)=>{
                                 return(
                                    <p key={index}>
                                        <span >{actor}.</span> 
@@ -98,7 +98,7 @@ function Videoplayer(){
 
                     <div className='duration'> 
                         <h1 className='title'>Duration</h1>
-                        {video.duration} miniutes 
+                        {video?.duration} miniutes 
                     </div>
 
 
